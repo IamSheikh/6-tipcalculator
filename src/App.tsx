@@ -10,7 +10,6 @@ const App = () => {
     total: 0,
     tip: 0,
     tipPerPerson: 0,
-    totalPerPerson: 0,
     numberOfPeople: 1,
   });
 
@@ -23,7 +22,6 @@ const App = () => {
         total: price + totalTip,
         tip: totalTip,
         tipPerPerson: totalTip / numberOfPeople,
-        totalPerPerson: (price + totalTip) / numberOfPeople,
         numberOfPeople: numberOfPeople,
       });
     } else {
@@ -31,7 +29,6 @@ const App = () => {
         total: price + totalTip,
         tip: totalTip,
         tipPerPerson: 0,
-        totalPerPerson: 0,
         numberOfPeople: 1,
       });
     }
@@ -134,20 +131,12 @@ const App = () => {
               </h1>
             </div>
             {result.numberOfPeople > 1 && (
-              <>
-                <div>
-                  <h1 className="text-xl">Tip Per Person: </h1>
-                  <h1 className="text-right text-xl">
-                    ${numeral(result.tipPerPerson).format("0.00")}
-                  </h1>
-                </div>
-                <div>
-                  <h1 className="text-xl">Total Per Person: </h1>
-                  <h1 className="text-right text-xl">
-                    ${numeral(result.totalPerPerson).format("0.00")}
-                  </h1>
-                </div>
-              </>
+              <div>
+                <h1 className="text-xl">Tip Per Person: </h1>
+                <h1 className="text-right text-xl">
+                  ${numeral(result.tipPerPerson).format("0.00")}
+                </h1>
+              </div>
             )}
           </div>
         )}
